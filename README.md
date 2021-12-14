@@ -1,6 +1,8 @@
 # mBm
 Generates Riemann-Liouville multifractional Brownian motion paths with a given Hurst function.
 
+[![View Multifractional Brownian motion generator on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/103545-multifractional-brownian-motion-generator)
+
 ## Usage
 * `mbm = mBm(n,H,interval)` produces a mBm path of length `n` with Hurst function `H` evaluated at the `interval`. If `interval = []` then it is set to `[0 1]`.
 * `[mbm, ts] = mBm(n,H,interval)` also produces the vector of the time steps.
