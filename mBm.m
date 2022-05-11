@@ -94,7 +94,7 @@ dt = (tn - t0) / (n - 1); % step size
 ts = linspace(t0, tn, n)'; % time steps for the mBm
 
 mbm = zeros(n,1);
-xi  = normrnd(0,1 , n-1,1); % gaussian white noise = vector of random numbers from the normal distribution with mean 0 and standard deviation 1
+xi  = randn(n-1,1); % gaussian white noise = vector of random numbers from the standard normal distribution (i.e. mean=0 and std=1) (it is equivalent to normrnd(0,1,n-1,1) but doesn't require stat toolbox)
 w   = @(t, H) sqrt((t .^ (2 * H) - (t - dt) .^ (2 * H)) ./ (2 * H * dt)) ./ gamma(H + 1/2); % eq 19 of the paper https://sci-hub.se/10.1103/PhysRevE.63.046104
 
 for k = 2:n % skip k=1 since by definition the Brownian motion starts at 0

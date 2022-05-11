@@ -124,7 +124,7 @@ mbm = zeros(n,1);
 % rng('default') fix the random number generator used by RAND, RANDI, and RANDN
 % so that xi (and so the generated mBm trajectory too) is always the same
 rng('default')
-xi  = normrnd(0,1 , n-1,1); % gaussian white noise = vector of random numbers from the normal distribution with mean 0 and standard deviation 1
+xi  = randn(n-1,1); % gaussian white noise = vector of random numbers from the standard normal distribution (i.e. mean=0 and std=1) (it is equivalent to normrnd(0,1,n-1,1) but doesn't require stat toolbox)
 w   = @(t, H) sqrt((t .^ (2 * H) - (t - dt) .^ (2 * H)) ./ (2 * H * dt)) ./ gamma(H + 1/2); % eq 19 of the paper
 
 for k = 2:n % skip k=1 since by definition the Brownian motion starts at 0
